@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Wastage & Conservation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        background-color: #f0f4f8;
+        color: #333;
+        padding-bottom: 50px;
+    }
+    
+    header {
+        background-color: #2c3e50;
+        padding: 1.5rem 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    header nav ul {
+        list-style: none;
+    }
+    
+    header nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+    }
+    
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+    }
+    
+    header nav ul li a:hover {
+        color: #1abc9c;
+    }
+    
+    .section {
+        padding: 4rem 2rem;
+        text-align: center;
+        background: white;
+        margin: 1rem 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .section:hover {
+        transform: translateY(-5px);
+    }
+    
+    .section h1, .section h2 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+    
+    .section p {
+        margin-top: 1.5rem;
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    ul {
+        margin-top: 1rem;
+        padding-left: 40px;
+        list-style-type: disc;
+        text-align: left;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+    }
+    
+    ul li {
+        margin: 0.7rem 0;
+        font-size: 1.1rem;
+        color: #444;
+    }
+    
+    .subject-image {
+        width: 100%;
+        max-width: 700px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    footer {
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 1.5rem 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    footer p {
+        margin: 0;
+        font-size: 1rem;
+    }
+    
+    /* Scroll animations */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+    
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Hover effects for navigation */
+    nav ul li a:hover {
+        color: #e74c3c;
+    }
+    
+    /* Section transitions */
+    .section:hover {
+        background-color: #ecf0f1;
+        transform: scale(1.02);
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Buttons (optional addition for future use) */
+    .button {
+        display: inline-block;
+        padding: 0.7rem 1.5rem;
+        margin-top: 1.5rem;
+        background-color: #1abc9c;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+        background-color: #16a085;
+    }
+    
+    /* Responsive styling */
+    @media (max-width: 768px) {
+        header nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+    
+        .section {
+            padding: 2rem 1rem;
+        }
+    
+        .subject-image {
+            max-width: 100%;
+        }
+    
+        ul {
+            padding-left: 20px;
+        }
+    }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".fade-in");
+
+    const options = {
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#importance">Importance</a></li>
+                <li><a href="#wastage">Water Wastage</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#technology">Technological Innovations</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="section">
+        <h1>Water Conservation & Wastage Control</h1>
+        <img src="https://gadgetadvisor.com/wp-content/uploads/2021/11/water-conservation.jpeg" alt="Water Conservation" class="subject-image">
+        <p>Water is a precious resource that is essential for life on Earth. This website delves into the pressing issue of water wastage in public places and explores solutions and technological advancements aimed at conserving water.</p>
+    </section>
+
+    <!-- Importance Section -->
+    <section id="importance" class="section">
+        <h2>Importance of Water Conservation</h2>
+        <img src="https://www.ncfe.ac.in/images/Background%20for%20website/National%20Centre%20for%20Excellence%20-%20Best%20School%20in%20CV%20Raman%20Nagar%20-%20Water%20conservation.jpeg" alt="Importance of Water Conservation" class="subject-image">
+        <ul class="fade-in">
+            <li>Water is vital for all forms of life</li>
+            <li>Freshwater resources are limited</li>
+            <li>Global demand for water is rising</li>
+            <li>Water scarcity affects millions worldwide</li>
+            <li>Conserving water reduces energy consumption</li>
+            <li>Protects ecosystems and biodiversity</li>
+            <li>Ensures sustainable agriculture</li>
+            <li>Minimizes the effects of droughts</li>
+            <li>Improves water availability for future generations</li>
+            <li>Reduces pollution and contamination</li>
+        </ul>
+    </section>
+
+    <!-- Water Wastage Section -->
+    <section id="wastage" class="section">
+        <h2>Water Wastage in  Places</h2>
+        <img src="https://cdn.greenmatch.co.uk/cdn-cgi/image/format=auto/2/2024/05/Common-causes-of-water-waste.png" alt="Water Wastage in Public Places" class="subject-image">
+        <ul class="fade-in">
+            <li>Leaking taps in public restrooms</li>
+            <li>Unmonitored water use in public fountains</li>
+            <li>Over-watering of public lawns and gardens</li>
+            <li>Inadequate plumbing maintenance in government buildings</li>
+            <li>Excessive water use in public pools and recreational areas</li>
+            <li>Public washrooms left with running taps</li>
+            <li>Unregulated water use during public events</li>
+            <li>Non-functional water-saving devices in public facilities</li>
+            <li>Lack of awareness of water-saving measures in public places</li>
+            <li>Water wastage in public car washing facilities</li>
+        </ul>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section">
+        <h2>Impact of Water Wastage</h2>
+        <img src="https://www.tariff.com/wp-content/uploads/2023/06/impact-of-water-waste-on-the-environment.jpg" alt="Impact of Water Wastage" class="subject-image">
+        <ul class="fade-in">
+            <li>Depletes freshwater resources</li>
+            <li>Increases water scarcity in urban areas</li>
+            <li>Affects food security due to lack of irrigation water</li>
+            <li>Leads to energy wastage in water processing</li>
+            <li>Increases the cost of water for communities</li>
+            <li>Contributes to water pollution from untreated waste</li>
+            <li>Harms aquatic life and ecosystems</li>
+            <li>Exacerbates the impact of droughts and climate change</li>
+            <li>Reduces water availability for essential needs</li>
+            <li>Disrupts public services like healthcare and sanitation</li>
+        </ul>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section">
+        <h2>Solutions to Reduce Water Wastage</h2>
+        <img src="https://waterapp.in/wp-content/uploads/2021/09/Blog-5-water-saving-tips-3-1.png" alt="Solutions to Water Wastage" class="subject-image">
+        <ul class="fade-in">
+            <li>Install water-saving devices in public facilities</li>
+            <li>Regular maintenance of plumbing in public spaces</li>
+            <li>Monitor water usage in public fountains</li>
+            <li>Use of recycled water for public gardening</li>
+            <li>Automate sprinklers in parks with timers</li>
+            <li>Promote public awareness about water conservation</li>
+            <li>Use water-efficient technologies in public places</li>
+            <li>Enforce penalties for excessive water use</li>
+            <li>Encourage public reporting of water wastage</li>
+            <li>Implement rainwater harvesting in public buildings</li>
+        </ul>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="section">
+        <h2>Challenges in Controlling Water Wastage</h2>
+        <img src="https://www.choovio.com/wp-content/uploads/2021/10/water-conservation-challenge-4-principles.png" alt="Challenges in Water Conservation" class="subject-image">
+        <ul class="fade-in">
+            <li>High cost of upgrading infrastructure</li>
+            <li>Public unawareness of water-saving methods</li>
+            <li>Resistance to adopting new technology</li>
+            <li>Poor enforcement of water-saving policies</li>
+            <li>Limited government funding for water projects</li>
+            <li>Difficulty in monitoring water use in all public areas</li>
+            <li>Lack of incentives for public institutions</li>
+            <li>Climate change exacerbates water shortages</li>
+            <li>Water pollution limits available freshwater</li>
+            <li>Conflicting priorities in resource management</li>
+        </ul>
+    </section>
+
+    <!-- Technological Innovations Section -->
+    <section id="technology" class="section">
+        <h2>Technological Innovations in Water Conservation</h2>
+        <img src="https://h2oglobalnews.com/wp-content/uploads/2023/09/Sprinkler-irrigation-system-smart-water-conservation-technique-farmsio.jpg" alt="Technological Innovations in Water Conservation" class="subject-image">
+        <ul class="fade-in">
+            <li>Smart water meters to monitor usage</li>
+            <li>Leak detection sensors in public pipelines</li>
+            <li>AI-driven water management systems</li>
+            <li>Smart irrigation systems for public parks</li>
+            <li>Water-efficient appliances in public buildings</li>
+            <li>Mobile apps for reporting water wastage</li>
+            <li>Desalination technology to increase freshwater supply</li>
+            <li>Use of drones for monitoring water bodies</li>
+            <li>Blockchain for tracking water usage in industries</li>
+            <li>Water recycling and greywater systems in public facilities</li>
+        </ul>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="section">
+        <h2>Conclusion</h2>
+        <p>Water conservation is not just a necessity but a shared responsibility. With the implementation of effective solutions and the help of technology, we can significantly reduce water wastage and ensure a sustainable future for all.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Water Conservation Initiative</p>
+    </footer>
+</body>
+</html>
